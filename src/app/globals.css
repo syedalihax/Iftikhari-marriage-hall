@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-dark: #062A24;
+    --brand-gold: #C89D3C;
+    --brand-bg: #FAF8F5;
+  }
+
+  body {
+    background-color: var(--brand-bg);
+    color: #1a2e2b;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #062a24;
+}
+::-webkit-scrollbar-thumb {
+  background: #c89d3c;
+  border-radius: 4px;
+}
