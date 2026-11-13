@@ -59,7 +59,7 @@ export default function AboutPage() {
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-[#C89D3C]/30 shadow-xl">
             <Image
               src="/images/stage-arch.jpg"
-              alt="IFTIKHARI Marriage Hall Interior Setup"
+              alt="White floral triple-arch stage with ornate seating and blue accent lighting"
               fill
               sizes="(max-width: 1024px) 100vw, 500px"
               className="object-cover"

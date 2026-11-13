@@ -292,7 +292,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-3 mb-4">
                   <Image
                     src={image}
-                    alt={`${name} at an IFTIKHARI Marriage Hall event`}
+                    alt={`Portrait of ${name}`}
                     width={48}
                     height={48}
                     className="w-12 h-12 rounded-full object-cover"
