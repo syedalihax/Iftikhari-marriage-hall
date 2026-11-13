@@ -271,9 +271,9 @@ export default function HomePage() {
             {[
               {
                 image: "/images/testimonal (1).jpg",
-                name: "Mr. Nael",
-                event: "Qadir Nael Award Ceremony",
-                quote: "The Qadir Nael Award Ceremony at IFTIKHARI Marriage Hall was a memorable evening. The stage looked elegant, and the team helped everything run smoothly.",
+                name: "Ibrahim",
+                event: "Qadir Ibrahim Award Ceremony",
+                quote: "The Qadir Ibrahim Award Ceremony at IFTIKHARI Marriage Hall was a memorable evening. The stage looked elegant, and the team helped everything run smoothly.",
               },
               {
                 image: "/images/testimonal (2).jpg",
