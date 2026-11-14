@@ -4,6 +4,7 @@ import { businessData } from "@/lib/seo-data";
 import JsonLd from "@/components/JsonLd";
 import FAQSection from "@/components/FAQSection";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import EventPackages from "@/components/EventPackages";
 import {
   Users,
   Car,
@@ -37,7 +38,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#C7D4D0] max-w-2xl leading-relaxed">
-                A welcoming venue for weddings, family celebrations, and special events. With capacity for 50 to 500 guests, backup power, and on-site parking.
+                A welcoming venue for weddings, family celebrations, and special events, with capacity for 300 to 500 guests per function.
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -59,7 +60,7 @@ export default function HomePage() {
               <div className="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs text-[#A8BBB5]">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#C89D3C]" />
-                  <span>50 to 500 guests</span>
+                  <span>300 to 500 guests</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#C89D3C]" />
@@ -125,7 +126,7 @@ export default function HomePage() {
                 <Users className="w-6 h-6" />
               </div>
               <h3 className="font-serif text-lg font-bold text-[#062A24] mb-2">
-                50 to 500 Guests
+                300 to 500 Guests
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
                 From intimate engagements and birthdays to larger weddings, the hall can be arranged for different guest counts.
@@ -310,65 +311,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PACKAGES */}
-      <section className="py-20 bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs uppercase tracking-widest text-[#C89D3C] font-semibold">
-              Event Packages
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#062A24] mt-2">
-              Packages for Your Celebration
-            </h2>
-            <p className="text-sm text-stone-600 mt-2">
-              Explore the available package options and contact the team to confirm inclusions, pricing, and date availability.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {businessData.packages.map((pkg, idx) => (
-              <div
-                key={idx}
-                className={`rounded-2xl p-8 transition-all flex flex-col justify-between ${
-                  pkg.popular
-                    ? "bg-[#062A24] text-white border-2 border-[#C89D3C] shadow-xl relative scale-105 z-10"
-                    : "bg-white text-[#062A24] border border-stone-200 shadow-sm"
-                }`}
-              >
-                {pkg.popular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#C89D3C] text-[#062A24] font-bold text-[10px] uppercase tracking-widest">
-                    Most Popular Choice
-                  </span>
-                )}
-
-                <div>
-                  <h3 className={`font-serif text-xl font-bold mb-1 ${pkg.popular ? "text-[#C89D3C]" : "text-[#062A24]"}`}>
-                    {pkg.name}
-                  </h3>
-                  <div className="text-2xl sm:text-3xl font-extrabold my-4">
-                    {pkg.price}
-                  </div>
-                  <p className={`text-xs mb-6 ${pkg.popular ? "text-[#B4C5C0]" : "text-stone-500"}`}>
-                    {pkg.idealFor}
-                  </p>
-
-                  <ul className="space-y-3 text-xs mb-8">
-                    {pkg.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${pkg.popular ? "text-[#C89D3C]" : "text-[#062A24]"}`} />
-                        <span className={pkg.popular ? "text-[#D9E3E0]" : "text-stone-700"}>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      <EventPackages />
 
       <FAQSection />
 

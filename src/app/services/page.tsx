@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { businessData } from "@/lib/seo-data";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import EventPackages from "@/components/EventPackages";
+import { Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services & Packages | IFTIKHARI Marriage Hall Quetta",
@@ -21,7 +21,7 @@ export default function ServicesPage() {
             Services & Packages
           </h1>
           <p className="text-sm sm:text-base text-[#BFCEC9] mt-3">
-            Event arrangements for 50 to 500 guests, with packages for different occasions.
+            Event packages for functions with 300 to 500 guests.
           </p>
         </div>
       </section>
@@ -59,46 +59,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-xl mx-auto mb-12">
-          <span className="text-xs uppercase tracking-widest text-[#C89D3C] font-semibold">Detailed Pricing</span>
-          <h2 className="font-serif text-3xl font-bold text-[#062A24] mt-1">Event Packages</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {businessData.packages.map((pkg, idx) => (
-            <div
-              key={idx}
-              className={`rounded-2xl p-8 flex flex-col justify-between ${
-                pkg.popular
-                  ? "bg-[#062A24] text-white border-2 border-[#C89D3C] shadow-xl relative"
-                  : "bg-white text-[#062A24] border border-stone-200 shadow-sm"
-              }`}
-            >
-              <div>
-                <h3 className={`font-serif text-2xl font-bold ${pkg.popular ? "text-[#C89D3C]" : "text-[#062A24]"}`}>
-                  {pkg.name}
-                </h3>
-                <div className="text-3xl font-extrabold my-4">{pkg.price}</div>
-                <p className={`text-xs mb-6 ${pkg.popular ? "text-[#B4C5C0]" : "text-stone-500"}`}>
-                  {pkg.idealFor}
-                </p>
-
-                <ul className="space-y-3 text-xs mb-8">
-                  {pkg.features.map((feature, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${pkg.popular ? "text-[#C89D3C]" : "text-[#062A24]"}`} />
-                      <span className={pkg.popular ? "text-[#D9E3E0]" : "text-stone-700"}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
-          ))}
-        </div>
-
-      </section>
+      <EventPackages />
 
     </div>
   );

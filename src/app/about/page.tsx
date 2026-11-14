@@ -35,7 +35,7 @@ export default function AboutPage() {
               Thoughtful Hospitality and Event Planning
             </h2>
             <p>
-              IFTIKHARI Marriage Hall is located in Hazara Town, Quetta, near Ameeri Taj Mahal Marriage Hall. The venue is designed to host events for 50 to 500 guests.
+              IFTIKHARI Marriage Hall is located in Hazara Town, Quetta, near Ameeri Taj Mahal Marriage Hall. The venue hosts functions for 300 to 500 guests.
             </p>
             <p>
               To help keep events running during power outages, IFTIKHARI Marriage Hall has a <strong>generator and dedicated UPS backup system</strong> for lighting and sound.

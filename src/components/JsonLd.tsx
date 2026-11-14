@@ -28,11 +28,10 @@ export default function JsonLd({ type }: { type: "faq" | "local" }) {
     },
     "hasMap": businessData.address.mapUrl,
     "maximumAttendeeCapacity": businessData.capacity.max,
-    "priceRange": "PKR 50,000 - PKR 100,000+",
+    "priceRange": "PKR 50,000 - PKR 105,000",
     "amenityFeature": [
       { "@type": "LocationFeatureSpecification", "name": "Generator & UPS Backup", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Car & Bike Parking", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Outside Catering Allowed", "value": true },
     ],
     "sameAs": [
