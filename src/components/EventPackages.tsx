@@ -1,5 +1,5 @@
 import {
-  CheckCircle2,
+  Check,
   Clock3,
   Sparkles,
   Utensils,
@@ -9,13 +9,13 @@ import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 export default function EventPackages() {
   return (
-    <section id="packages" className="bg-[#FAF8F5] py-16 sm:py-20" aria-labelledby="packages-title">
+    <section id="packages" className="bg-[#F9F8F4] py-16 sm:py-20" aria-labelledby="packages-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
-          <span className="text-xs uppercase tracking-widest text-[#C89D3C] font-semibold">
-            Event Packages
+          <span className="text-xs uppercase tracking-widest text-[#C59B27] font-semibold">
+            EVENT PACKAGES
           </span>
-          <h2 id="packages-title" className="font-serif text-3xl sm:text-4xl font-bold text-[#062A24] mt-2">
+          <h2 id="packages-title" className="font-serif text-3xl sm:text-4xl font-bold text-[#0D281E] mt-2">
             Packages for Your Celebration
           </h2>
           <p className="text-sm text-stone-600 mt-3">
@@ -23,130 +23,150 @@ export default function EventPackages() {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-stretch">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-5 lg:gap-6 items-stretch">
           {businessData.packages.map((pkg) => (
             <article
               key={pkg.functions}
-              className={`relative flex flex-col rounded-xl border p-6 sm:p-7 ${
+              className={`relative flex h-full flex-col rounded-2xl border p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl sm:p-6 lg:p-7 ${
                 pkg.bestValue
-                  ? "border-[#C89D3C] bg-[#062A24] text-white shadow-lg"
-                  : "border-stone-200 bg-white text-[#062A24] shadow-sm"
+                  ? "border-[#0D281E] bg-[#0D281E] text-white shadow-lg"
+                  : pkg.popular
+                    ? "border-2 border-[#C59B27] bg-white text-[#0D281E] shadow-lg md:-translate-y-1 md:z-10"
+                    : "border-stone-200 bg-white text-[#0D281E]"
               }`}
             >
-              {pkg.bestValue && (
-                <span className="absolute right-4 top-4 rounded-full bg-[#C89D3C] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#062A24]">
-                  Best Value
+              {(pkg.popular || pkg.bestValue) && (
+                <span className={`absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest shadow-sm ${pkg.bestValue ? "bg-[#D4AF37] text-[#0D281E]" : "bg-[#D4AF37] text-[#0D281E]"}`}>
+                  {pkg.popular ? "Most Popular" : "Best Value"}
                 </span>
               )}
-              <p className={`text-xs font-semibold uppercase tracking-wider ${pkg.bestValue ? "text-[#C89D3C]" : "text-stone-500"}`}>
-                {pkg.functions} {pkg.functions === 1 ? "function" : "functions"}
-              </p>
-              <h3 className={`font-serif text-xl sm:text-2xl font-bold mt-2 ${pkg.bestValue ? "text-white" : "text-[#062A24]"}`}>
-                {pkg.name}
-              </h3>
-              <div className={`mt-6 border-t pt-5 ${pkg.bestValue ? "border-white/15" : "border-stone-200"}`}>
-                <p className={`text-xs ${pkg.bestValue ? "text-[#BFCEC9]" : "text-stone-500"}`}>
-                  Total package price
+
+              <div className="pt-1">
+                <p className={`text-[11px] font-bold uppercase tracking-widest ${pkg.bestValue ? "text-[#D4AF37]" : "text-[#C59B27]"}`}>
+                  {pkg.functions} {pkg.functions === 1 ? "Function" : "Functions"}
                 </p>
-                <p className="mt-1 text-3xl font-extrabold">{pkg.totalPrice}</p>
-                <p className={`mt-4 text-sm ${pkg.bestValue ? "text-[#D9E3E0]" : "text-stone-600"}`}>
-                  {pkg.perFunctionPrice} <span className="text-xs">per function</span>
+                <h3 className={`mt-2 font-serif text-xl font-bold sm:text-2xl ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
+                  {pkg.name}
+                </h3>
+                <p className={`mt-2 min-h-10 text-sm leading-relaxed ${pkg.bestValue ? "text-white/75" : "text-stone-600"}`}>
+                  {pkg.subtitle}
                 </p>
               </div>
+
+              <div className="mt-5 flex min-h-6 items-center gap-2">
+                {pkg.originalPrice && (
+                  <>
+                    <span className={`text-sm line-through ${pkg.bestValue ? "text-white/55" : "text-stone-500"}`}>
+                      {pkg.originalPrice}
+                    </span>
+                    <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold tracking-wide ${pkg.bestValue ? "bg-[#D4AF37]/20 text-[#F0D36B]" : "bg-[#D4AF37]/15 text-[#8A6812]"}`}>
+                      {pkg.discount}
+                    </span>
+                  </>
+                )}
+              </div>
+
+              <div className="mt-1">
+                <p className={`text-3xl font-extrabold leading-tight sm:text-4xl ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
+                  {pkg.totalPrice}
+                </p>
+                <p className={`mt-2 text-sm ${pkg.bestValue ? "text-white/80" : "text-stone-600"}`}>
+                  {pkg.perFunctionPrice} per function{pkg.savings ? ` (${pkg.savings})` : ""}
+                </p>
+              </div>
+
+              <a
+                href={getWhatsAppUrl(`Hello, I would like to book the ${pkg.name} package (${pkg.totalPrice}, ${pkg.perFunctionPrice} per function) at Iftikhari Marriage Hall.`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] ${pkg.bestValue || pkg.popular ? "bg-[#D4AF37] text-[#0D281E] hover:bg-[#e1c65b]" : "border border-[#0D281E] text-[#0D281E] hover:bg-[#0D281E] hover:text-white"}`}
+              >
+                {pkg.bookingLabel}
+              </a>
+
+              <div className={`my-6 border-t ${pkg.bestValue ? "border-white/20" : "border-stone-200"}`} />
+
+              <ul className="flex-1 space-y-3">
+                {pkg.functions > 1 && (
+                  <li className={`flex items-start gap-2.5 text-sm font-bold ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#C59B27]" aria-hidden="true" />
+                    All Single Function Facilities Included
+                  </li>
+                )}
+                {businessData.packageFacilities.map((facility) => (
+                  <li key={facility} className={`flex items-start gap-2.5 text-sm leading-relaxed ${pkg.bestValue ? "text-white/90" : "text-stone-700"}`}>
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#C59B27]" aria-hidden="true" />
+                    <span>{facility}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className={`mt-5 text-xs leading-relaxed ${pkg.bestValue ? "text-white/70" : "text-stone-500"}`}>
+                Catering is arranged separately. Stage decoration changes or redesign are available at additional charges.
+              </p>
             </article>
           ))}
         </div>
 
-        <section className="mt-14 border-y border-stone-200 py-10 sm:py-12" aria-labelledby="included-title">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-            <div>
-              <span className="text-xs uppercase tracking-widest text-[#C89D3C] font-semibold">Included</span>
-              <h3 id="included-title" className="font-serif text-2xl sm:text-3xl font-bold text-[#062A24] mt-2">
-                Facilities in every package
-              </h3>
-              <p className="text-sm leading-relaxed text-stone-600 mt-3">
-                Every booking includes the existing standard stage setup. Changes, customization, or redesign of the stage decoration are available at additional charges.
-              </p>
+        <div className="mt-12 grid overflow-hidden rounded-2xl border border-[#0D281E]/15 bg-white shadow-sm md:grid-cols-3 md:divide-x md:divide-y-0 divide-y divide-[#0D281E]/10">
+          <section className="p-6 sm:p-7" aria-labelledby="timings-title">
+            <div className="flex items-center gap-3">
+              <Clock3 className="h-5 w-5 shrink-0 text-[#C59B27]" aria-hidden="true" />
+              <h3 id="timings-title" className="font-serif text-xl font-bold text-[#0D281E]">Function Timings</h3>
             </div>
-            <ul className="grid gap-x-6 gap-y-4 sm:grid-cols-2">
-              {businessData.packageFacilities.map((facility) => (
-                <li key={facility} className="flex items-start gap-3 text-sm text-stone-700">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#C89D3C]" aria-hidden="true" />
-                  <span>{facility}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <div className="grid gap-10 py-10 sm:py-12 lg:grid-cols-2 lg:gap-14">
-          <section aria-labelledby="timings-title">
-            <div className="flex items-start gap-3">
-              <Clock3 className="mt-1 h-5 w-5 shrink-0 text-[#C89D3C]" aria-hidden="true" />
-              <div>
-                <h3 id="timings-title" className="font-serif text-2xl font-bold text-[#062A24]">Choose your function time</h3>
-                <p className="mt-2 text-sm text-stone-600">Both time slots are available with any package.</p>
-              </div>
-            </div>
-            <dl className="mt-6 divide-y divide-stone-200 border-y border-stone-200">
+            <dl className="mt-5 space-y-3">
               {businessData.functionSlots.map((slot) => (
-                <div key={slot.name} className="flex flex-wrap items-center justify-between gap-2 py-4">
-                  <dt className="text-sm font-semibold text-[#062A24]">{slot.name}</dt>
-                  <dd className="text-sm text-stone-600">{slot.time}</dd>
+                <div key={slot.name} className="text-sm">
+                  <dt className="inline font-semibold text-[#0D281E]">{slot.name === "Lunch Function" ? "Lunch Slot: " : "Night Slot: "}</dt>
+                  <dd className="inline text-stone-600">{slot.time}</dd>
                 </div>
               ))}
             </dl>
+            <p className="mt-4 text-xs italic text-stone-500">Both slots are available with any package.</p>
           </section>
 
-          <section aria-labelledby="catering-title">
-            <div className="flex items-start gap-3">
-              <Utensils className="mt-1 h-5 w-5 shrink-0 text-[#C89D3C]" aria-hidden="true" />
-              <div>
-                <h3 id="catering-title" className="font-serif text-2xl font-bold text-[#062A24]">Flexible catering</h3>
-                <p className="mt-2 text-sm text-stone-600">Catering is not included in package prices. Choose either option:</p>
-              </div>
+          <section className="p-6 sm:p-7" aria-labelledby="catering-title">
+            <div className="flex items-center gap-3">
+              <Utensils className="h-5 w-5 shrink-0 text-[#C59B27]" aria-hidden="true" />
+              <h3 id="catering-title" className="font-serif text-xl font-bold text-[#0D281E]">Flexible Catering</h3>
             </div>
-            <dl className="mt-6 divide-y divide-stone-200 border-y border-stone-200">
+            <dl className="mt-5 space-y-3">
               {businessData.cateringOptions.map((option) => (
-                <div key={option.name} className="py-4">
-                  <dt className="text-sm font-semibold text-[#062A24]">{option.name}</dt>
-                  <dd className="mt-1 text-sm leading-relaxed text-stone-600">{option.description}</dd>
+                <div key={option.name} className="text-sm leading-relaxed">
+                  <dt className="inline font-semibold text-[#0D281E]">{option.name}: </dt>
+                  <dd className="inline text-stone-600">{option.description}</dd>
                 </div>
               ))}
             </dl>
+            <p className="mt-4 text-xs italic text-stone-500">Catering charges are separate from hall package prices.</p>
           </section>
-        </div>
 
-        <section className="border-t border-stone-200 pt-8" aria-labelledby="addons-title">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-start gap-3">
-              <Sparkles className="mt-1 h-5 w-5 shrink-0 text-[#C89D3C]" aria-hidden="true" />
-              <div>
-                <h3 id="addons-title" className="font-serif text-2xl font-bold text-[#062A24]">Optional Add-ons</h3>
-                <p className="mt-2 text-sm text-stone-600">Available at additional charges; not included in standard packages.</p>
-              </div>
+          <section className="p-6 sm:p-7" aria-labelledby="addons-title">
+            <div className="flex items-center gap-3">
+              <Sparkles className="h-5 w-5 shrink-0 text-[#C59B27]" aria-hidden="true" />
+              <h3 id="addons-title" className="font-serif text-xl font-bold text-[#0D281E]">Optional Add-ons</h3>
             </div>
-            <ul className="flex flex-wrap gap-x-6 gap-y-3 md:justify-end">
+            <ul className="mt-5 space-y-3">
               {businessData.optionalAddOns.map((addOn) => (
-                <li key={addOn} className="flex items-center gap-2 text-sm font-medium text-[#062A24]">
-                  <Sparkles className="h-4 w-4 text-[#C89D3C]" aria-hidden="true" />
+                <li key={addOn} className="flex items-start gap-2.5 text-sm text-stone-700">
+                  <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-[#C59B27]" aria-hidden="true" />
                   {addOn}
                 </li>
               ))}
             </ul>
-          </div>
-        </section>
+            <p className="mt-4 text-xs italic text-stone-500">Available at additional charges.</p>
+          </section>
+        </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-xl bg-[#062A24] px-6 py-6 text-center sm:flex-row sm:text-left sm:px-8">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl bg-[#0D281E] px-6 py-6 text-center sm:flex-row sm:text-left sm:px-8">
           <div>
             <h3 className="font-serif text-xl font-bold text-white">Plan your event with us</h3>
-            <p className="mt-1 text-sm text-[#BFCEC9]">Ask about package bookings and date availability.</p>
+            <p className="mt-1 text-sm text-white/75">Ask about package bookings and date availability.</p>
           </div>
           <a
             href={getWhatsAppUrl("Hello, I would like to enquire about booking an event package at Iftikhari Marriage Hall.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-md bg-[#C89D3C] px-5 py-3 text-sm font-semibold text-[#062A24] transition-colors hover:bg-[#d6ad56] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#D4AF37] px-5 py-3 text-sm font-semibold text-[#0D281E] transition-colors hover:bg-[#e1c65b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <WhatsAppIcon className="h-4 w-4" />
             Enquire on WhatsApp
