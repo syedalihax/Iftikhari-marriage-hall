@@ -42,9 +42,6 @@ export default function EventPackages() {
               )}
 
               <div className="pt-1">
-                <p className={`text-[11px] font-bold uppercase tracking-widest ${pkg.bestValue ? "text-[#D4AF37]" : "text-[#C59B27]"}`}>
-                  {pkg.eventCount} {pkg.eventCount === 1 ? "Event" : "Events"}
-                </p>
                 <h3 className={`mt-2 font-serif text-xl font-bold sm:text-2xl ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
                   {pkg.name}
                 </h3>
@@ -87,27 +84,22 @@ export default function EventPackages() {
               <div className={`my-6 border-t ${pkg.bestValue ? "border-white/20" : "border-stone-200"}`} />
 
               <ul className="flex-1 space-y-3">
-                {pkg.eventCount > 1 && (
-                  <li className={`flex items-start gap-2.5 text-sm font-bold ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
+                {(pkg.eventCount === 1 ? businessData.packageFacilities : pkg.highlights).map((highlight) => (
+                  <li key={highlight} className={`flex items-start gap-2.5 text-sm leading-relaxed ${pkg.bestValue ? "text-white/90" : "text-stone-700"}`}>
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#C59B27]" aria-hidden="true" />
-                    Includes all single-event facilities
-                  </li>
-                )}
-                {businessData.packageFacilities.map((facility) => (
-                  <li key={facility} className={`flex items-start gap-2.5 text-sm leading-relaxed ${pkg.bestValue ? "text-white/90" : "text-stone-700"}`}>
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#C59B27]" aria-hidden="true" />
-                    <span>{facility}</span>
+                    <span>{highlight}</span>
                   </li>
                 ))}
               </ul>
-              <p className={`mt-5 text-xs leading-relaxed ${pkg.bestValue ? "text-white/70" : "text-stone-500"}`}>
-                Catering is arranged separately. Stage decoration changes or redesign are available at additional charges.
-              </p>
             </article>
           ))}
         </div>
 
-        <div className="mt-12 grid overflow-hidden rounded-2xl border border-[#0D281E]/15 bg-white shadow-sm md:grid-cols-3 md:divide-x md:divide-y-0 divide-y divide-[#0D281E]/10">
+        <p className="mt-4 text-center text-xs leading-relaxed text-stone-500">
+          Catering is arranged separately. Stage decoration changes or redesign are available at additional charges.
+        </p>
+
+        <div className="mt-8 grid overflow-hidden rounded-2xl border border-[#0D281E]/15 bg-white shadow-sm md:grid-cols-3 md:divide-x md:divide-y-0 divide-y divide-[#0D281E]/10">
           <section className="p-6 sm:p-7" aria-labelledby="timings-title">
             <div className="flex items-center gap-3">
               <Clock3 className="h-5 w-5 shrink-0 text-[#C59B27]" aria-hidden="true" />
