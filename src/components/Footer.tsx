@@ -19,7 +19,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-[#B4C2BE] leading-relaxed">
-              A welcoming marriage and event venue in Hazara Town, Quetta, for weddings, family celebrations, and functions for 300 to 500 guests.
+              A welcoming marriage and event venue in Hazara Town, Quetta, for weddings, family celebrations, and events for 300 to 500 guests.
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
@@ -64,7 +64,7 @@ export default function Footer() {
             <ul className="space-y-3 text-xs text-[#B4C2BE]">
               <li className="flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#C89D3C] shrink-0 mt-0.5" />
-                <span>Capacity for 300 to 500 guests per function</span>
+                <span>Capacity for 300 to 500 guests per event</span>
               </li>
               <li className="flex items-start gap-2">
                 <Zap className="w-4 h-4 text-[#C89D3C] shrink-0 mt-0.5" />

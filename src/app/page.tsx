@@ -38,7 +38,7 @@ export default function HomePage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#C7D4D0] max-w-2xl leading-relaxed">
-                A welcoming venue for weddings, family celebrations, and special events, with capacity for 300 to 500 guests per function.
+                A welcoming venue for weddings, family celebrations, and special events, with capacity for 300 to 500 guests per event.
               </p>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">

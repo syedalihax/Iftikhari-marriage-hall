@@ -21,7 +21,7 @@ export default function ServicesPage() {
             Services & Packages
           </h1>
           <p className="text-sm sm:text-base text-[#BFCEC9] mt-3">
-            Event packages for functions with 300 to 500 guests.
+            Packages for events with 300 to 500 guests.
           </p>
         </div>
       </section>

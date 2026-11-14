@@ -19,14 +19,14 @@ export default function EventPackages() {
             Packages for Your Celebration
           </h2>
           <p className="text-sm text-stone-600 mt-3">
-            For functions with 300–500 guests. Choose one, two, or three functions.
+            For events with 300–500 guests. Choose a package for one, two, or three events.
           </p>
         </header>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-5 lg:gap-6 items-stretch">
           {businessData.packages.map((pkg) => (
             <article
-              key={pkg.functions}
+              key={pkg.eventCount}
               className={`relative flex h-full flex-col rounded-2xl border p-5 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-xl sm:p-6 lg:p-7 ${
                 pkg.bestValue
                   ? "border-[#0D281E] bg-[#0D281E] text-white shadow-lg"
@@ -43,7 +43,7 @@ export default function EventPackages() {
 
               <div className="pt-1">
                 <p className={`text-[11px] font-bold uppercase tracking-widest ${pkg.bestValue ? "text-[#D4AF37]" : "text-[#C59B27]"}`}>
-                  {pkg.functions} {pkg.functions === 1 ? "Function" : "Functions"}
+                  {pkg.eventCount} {pkg.eventCount === 1 ? "Event" : "Events"}
                 </p>
                 <h3 className={`mt-2 font-serif text-xl font-bold sm:text-2xl ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
                   {pkg.name}
@@ -71,12 +71,12 @@ export default function EventPackages() {
                   {pkg.totalPrice}
                 </p>
                 <p className={`mt-2 text-sm ${pkg.bestValue ? "text-white/80" : "text-stone-600"}`}>
-                  {pkg.perFunctionPrice} per function{pkg.savings ? ` (${pkg.savings})` : ""}
+                  {pkg.perEventPrice} per event{pkg.savings ? ` (${pkg.savings})` : ""}
                 </p>
               </div>
 
               <a
-                href={getWhatsAppUrl(`Hello, I would like to book the ${pkg.name} package (${pkg.totalPrice}, ${pkg.perFunctionPrice} per function) at Iftikhari Marriage Hall.`)}
+                href={getWhatsAppUrl(`Hello, I would like to book the ${pkg.name} package (${pkg.totalPrice}, ${pkg.perEventPrice} per event) at Iftikhari Marriage Hall.`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-lg px-4 py-3 text-center text-sm font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37] ${pkg.bestValue || pkg.popular ? "bg-[#D4AF37] text-[#0D281E] hover:bg-[#e1c65b]" : "border border-[#0D281E] text-[#0D281E] hover:bg-[#0D281E] hover:text-white"}`}
@@ -87,10 +87,10 @@ export default function EventPackages() {
               <div className={`my-6 border-t ${pkg.bestValue ? "border-white/20" : "border-stone-200"}`} />
 
               <ul className="flex-1 space-y-3">
-                {pkg.functions > 1 && (
+                {pkg.eventCount > 1 && (
                   <li className={`flex items-start gap-2.5 text-sm font-bold ${pkg.bestValue ? "text-white" : "text-[#0D281E]"}`}>
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#C59B27]" aria-hidden="true" />
-                    All Single Function Facilities Included
+                    Includes all single-event facilities
                   </li>
                 )}
                 {businessData.packageFacilities.map((facility) => (
@@ -111,12 +111,12 @@ export default function EventPackages() {
           <section className="p-6 sm:p-7" aria-labelledby="timings-title">
             <div className="flex items-center gap-3">
               <Clock3 className="h-5 w-5 shrink-0 text-[#C59B27]" aria-hidden="true" />
-              <h3 id="timings-title" className="font-serif text-xl font-bold text-[#0D281E]">Function Timings</h3>
+              <h3 id="timings-title" className="font-serif text-xl font-bold text-[#0D281E]">Event Timings</h3>
             </div>
             <dl className="mt-5 space-y-3">
-              {businessData.functionSlots.map((slot) => (
+              {businessData.eventSlots.map((slot) => (
                 <div key={slot.name} className="text-sm">
-                  <dt className="inline font-semibold text-[#0D281E]">{slot.name === "Lunch Function" ? "Lunch Slot: " : "Night Slot: "}</dt>
+                  <dt className="inline font-semibold text-[#0D281E]">{slot.name === "Lunch Event" ? "Lunch Slot: " : "Night Slot: "}</dt>
                   <dd className="inline text-stone-600">{slot.time}</dd>
                 </div>
               ))}
