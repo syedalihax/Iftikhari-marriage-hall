@@ -1,4 +1,12 @@
 const phone = "+923498059149";
+const venueAddress = {
+  street: "Road Madrasa Ali Abn Abi Talib, Block # 1",
+  area: "Hazara Town",
+  city: "Quetta",
+  region: "Balochistan",
+  country: "PK",
+  mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Road Madrasa Ali Abn Abi Talib, Block # 1, Hazara Town, Quetta, Pakistan")}`,
+};
 
 function createWhatsAppUrl(message = "Hello, I would like to know more about booking and packages at IFTIKHARI Marriage Hall.") {
   return `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
@@ -11,14 +19,7 @@ export const businessData = {
   phone,
   phoneFormatted: "+92 349 8059149",
   whatsappUrl: createWhatsAppUrl(),
-  address: {
-    street: "Near Ameeri Taj Mahal Marriage Hall, Hazara Town",
-    city: "Quetta",
-    region: "Balochistan",
-    country: "PK",
-    plusCode: "5XM5+F3J, Hazara Town, Quetta, Pakistan",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=5XM5%2BF3J%2C+Hazara+Town%2C+Quetta%2C+Pakistan",
-  },
+  address: venueAddress,
   social: {
     facebook: "https://www.facebook.com/p/Iftikhari-Hall-61569787506106/",
     instagram: "https://www.instagram.com/iftikhari_hall/",
@@ -107,7 +108,7 @@ export const businessData = {
   faqs: [
     {
       question: "Where is IFTIKHARI Marriage Hall, and how can I find it on Google Maps?",
-      answer: "IFTIKHARI Marriage Hall is in Hazara Town, Quetta, near Ameeri Taj Mahal Marriage Hall. Open the map on our Contact page for directions.",
+      answer: `IFTIKHARI Marriage Hall is at ${venueAddress.street}, ${venueAddress.area}, ${venueAddress.city}. Open the map on our Contact page for directions.`,
     },
     {
       question: "How many guests can IFTIKHARI Marriage Hall accommodate?",
@@ -123,7 +124,7 @@ export const businessData = {
     },
     {
       question: "How can I ask about booking a date?",
-      answer: "Call or message us on WhatsApp at +92 349 8059149, or visit the hall in Hazara Town, Quetta.",
+      answer: `Call or message us on WhatsApp at +92 349 8059149, or visit the hall at ${venueAddress.street}, ${venueAddress.area}, ${venueAddress.city}.`,
     },
   ],
 };

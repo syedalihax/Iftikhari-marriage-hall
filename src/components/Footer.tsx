@@ -89,7 +89,7 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C89D3C] shrink-0 mt-1" />
                 <p className="text-xs leading-relaxed">
-                  Near Ameeri Taj Mahal Marriage Hall, Hazara Town, Quetta, Pakistan.
+                  {businessData.address.street}, {businessData.address.area}, {businessData.address.city}, Pakistan.
                 </p>
               </div>
 

@@ -16,15 +16,10 @@ export default function JsonLd({ type }: { type: "faq" | "local" }) {
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": businessData.address.street,
+      "streetAddress": `${businessData.address.street}, ${businessData.address.area}`,
       "addressLocality": businessData.address.city,
       "addressRegion": businessData.address.region,
       "addressCountry": businessData.address.country,
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 30.1798,
-      "longitude": 66.9750,
     },
     "hasMap": businessData.address.mapUrl,
     "maximumAttendeeCapacity": businessData.capacity.max,

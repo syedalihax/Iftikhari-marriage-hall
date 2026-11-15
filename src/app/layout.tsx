@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | IFTIKHARI Marriage Hall Quetta",
   },
   description:
-    "IFTIKHARI Marriage Hall is a wedding and event venue in Hazara Town, Quetta, with capacity for 300 to 500 guests per event, generator and UPS backup, parking, and event packages.",
+    "IFTIKHARI Marriage Hall is a wedding and event venue at Road Madrasa Ali Abn Abi Talib, Block # 1, Hazara Town, Quetta, with capacity for 300 to 500 guests per event, generator and UPS backup, parking, and event packages.",
   keywords: [
     "IFTIKHARI Marriage Hall",
     "IFTIKHARI Marriage Hall Quetta",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     "Wedding Venue Quetta",
     "Hazara Town Banquet",
     "Nikah stage Quetta",
-    "5XM5+F3J Quetta",
+    "Road Madrasa Ali Abn Abi Talib Quetta",
   ],
   authors: [{ name: "IFTIKHARI Marriage Hall" }],
   icons: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "IFTIKHARI Marriage Hall Quetta | Wedding & Banquet Venue",
     description:
-      "IFTIKHARI Marriage Hall in Hazara Town, Quetta, has capacity for 300 to 500 guests per event, backup power, parking, and event packages.",
+      "IFTIKHARI Marriage Hall at Road Madrasa Ali Abn Abi Talib, Block # 1, Hazara Town, Quetta, has capacity for 300 to 500 guests per event, backup power, parking, and event packages.",
     url: "https://iftikharihall.pk",
     siteName: "IFTIKHARI Marriage Hall",
     locale: "en_PK",
