@@ -83,7 +83,7 @@ export default function ContactPage() {
                 Hazara Town, Quetta
               </h2>
               <p className="text-sm text-stone-600 mt-1">
-                Near Ameeri Taj Mahal Marriage Hall, Hazara Town, Quetta, Balochistan, Pakistan.
+                {businessData.address.street}, Quetta, Balochistan, Pakistan.
               </p>
             </div>
 
@@ -101,7 +101,7 @@ export default function ContactPage() {
           <div className="mt-6 w-full h-[400px] rounded-xl overflow-hidden border border-stone-200 relative bg-stone-100">
             <iframe
               title="IFTIKHARI Marriage Hall Quetta Location Map"
-              src="https://maps.google.com/maps?q=5XM5%2BF3J%2C%20Hazara%20Town%2C%20Quetta%2C%20Pakistan&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(`${businessData.address.street}, ${businessData.address.city}, Pakistan`)}&t=&z=16&ie=UTF8&iwloc=&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
