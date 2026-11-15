@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     "5XM5+F3J Quetta",
   ],
   authors: [{ name: "IFTIKHARI Marriage Hall" }],
+  icons: {
+    icon: [{ url: "/favicon/favicon.jfif", type: "image/jpeg" }],
+  },
   openGraph: {
     title: "IFTIKHARI Marriage Hall Quetta | Wedding & Banquet Venue",
     description:
