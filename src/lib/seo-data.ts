@@ -1,12 +1,14 @@
 const phone = "+923123617116";
 const phoneFormatted = "0312 3617116";
+const venueMapQuery = "5XM5+F3 Quetta, Pakistan";
 const venueAddress = {
   street: "Road Madrasa Ali Abn Abi Talib, Block # 1",
   area: "Hazara Town",
   city: "Quetta",
   region: "Balochistan",
   country: "PK",
-  mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Road Madrasa Ali Abn Abi Talib, Block # 1, Hazara Town, Quetta, Pakistan")}`,
+  mapQuery: venueMapQuery,
+  mapUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venueMapQuery)}`,
 };
 
 function createWhatsAppUrl(message = "Hello, I would like to know more about booking and packages at IFTIKHARI Marriage Hall.") {

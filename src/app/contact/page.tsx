@@ -101,7 +101,7 @@ export default function ContactPage() {
           <div className="mt-6 w-full h-[400px] rounded-xl overflow-hidden border border-stone-200 relative bg-stone-100">
             <iframe
               title="IFTIKHARI Marriage Hall Quetta Location Map"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(`${businessData.address.street}, ${businessData.address.area}, ${businessData.address.city}, Pakistan`)}&t=&z=16&ie=UTF8&iwloc=&output=embed`}
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(businessData.address.mapQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
