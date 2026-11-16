@@ -46,7 +46,7 @@ export default function AboutPage() {
 
             <div className="pt-4 grid grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-white border border-stone-200">
-                <p className="font-serif text-2xl font-bold text-[#062A24]">50 - 500</p>
+                <p className="font-serif text-2xl font-bold text-[#062A24]">{businessData.capacity.min} - {businessData.capacity.max}</p>
                 <p className="text-xs text-stone-500">Guest capacity</p>
               </div>
               <div className="p-4 rounded-xl bg-white border border-stone-200">

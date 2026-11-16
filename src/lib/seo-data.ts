@@ -1,4 +1,5 @@
-const phone = "+923498059149";
+const phone = "+923123617116";
+const phoneFormatted = "0312 3617116";
 const venueAddress = {
   street: "Road Madrasa Ali Abn Abi Talib, Block # 1",
   area: "Hazara Town",
@@ -17,7 +18,7 @@ export const businessData = {
   legalName: "IFTIKHARI Marriage Hall",
   url: "https://iftikharihall.pk",
   phone,
-  phoneFormatted: "+92 349 8059149",
+  phoneFormatted,
   whatsappUrl: createWhatsAppUrl(),
   address: venueAddress,
   social: {
@@ -124,7 +125,7 @@ export const businessData = {
     },
     {
       question: "How can I ask about booking a date?",
-      answer: `Call or message us on WhatsApp at +92 349 8059149, or visit the hall at ${venueAddress.street}, ${venueAddress.area}, ${venueAddress.city}.`,
+      answer: `Call or message us on WhatsApp at ${phoneFormatted}, or visit the hall at ${venueAddress.street}, ${venueAddress.area}, ${venueAddress.city}.`,
     },
   ],
 };
